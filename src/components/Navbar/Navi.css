@@ -1,0 +1,17 @@
+
+.navbar-brand{
+    margin: 0;
+    position:fixed;
+    left: 0;
+  }
+  .profile{
+    margin: 0;
+    position:fixed;
+    right: 0;
+    padding-right: 35px;
+  }
+  
+  .nav-link:hover {
+      color: #9933FF !important;
+     
+    }
