@@ -14,8 +14,8 @@
   .card-login-animation {
     margin-top:50px;
     padding: 3px;
-    width: 400px;
-    height: 325px;
+    width: 410px;
+    height: 365px;
     background: linear-gradient(90deg,
     #56a2bd 0%,
     #6610f2 10%,
@@ -54,8 +54,8 @@
 .card-right {
   margin-top:50px;
   padding: 3px;
-  width: 300px;
-  height: 315px;
+  width: 410px;
+  height: 365px;
   background: linear-gradient(360deg,
   #56a2bd 0%,
   #6610f2 10%,
@@ -84,6 +84,7 @@
 .form {
   position: relative;
   z-index: 1;
+  width: 400px;
   background: #FFFFFF;
   border-radius: 10px;
   max-width: 860px;

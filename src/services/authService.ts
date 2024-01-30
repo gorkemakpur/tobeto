@@ -1,10 +1,12 @@
 import axiosInstance from "../core/interceptors/axiosInceptor";
+import { RegisterRequest } from "../models/requests/login/registerRequest";
 
 class AuthService {
 	// modelleme
-	register(model: any) {
+	register(model: RegisterRequest) {
 		return axiosInstance.post("Auth/register", model);
 	}
 }
 
-export default new AuthService();
+var authService = new AuthService();
+export default authService;

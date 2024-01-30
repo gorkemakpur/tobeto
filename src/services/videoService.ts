@@ -22,5 +22,5 @@ class VideoService extends BaseService<
 
 	getByFilter() {}
 }
-
-export default new VideoService();
+var videoService = new VideoService();
+export default videoService;
