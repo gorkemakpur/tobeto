@@ -16,15 +16,15 @@ export class BaseService<
 	}
 
 	getAll(): Promise<AxiosResponse<GetAllType, any>> {
-		return axiosInstance.get<GetAllType>(this.apiUrl);
+		return axiosInstance.get<GetAllType>(this.apiUrl+"/GetList");
 	}
 
 	getById(id: number): Promise<AxiosResponse<GetByIdType, any>> {
-		return axiosInstance.get<GetByIdType>(this.apiUrl + "/" + id);
+		return axiosInstance.get<GetByIdType>(this.apiUrl + "/GetById" + id);
 	}
-
+//bu kısımlara bakıalcak
 	add(request: AddRequestType): Promise<AxiosResponse<AddResponseType, any>> {
-		return axiosInstance.post<AddResponseType>(this.apiUrl, request);
+		return axiosInstance.post<AddResponseType>(this.apiUrl+"/Add/", request);
 	}
 
 	update(

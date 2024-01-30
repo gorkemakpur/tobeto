@@ -44,20 +44,24 @@ export default function LoginNavi() {
 
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto">
-                  <Link to="#home" className="nav-link p-4 text-white">
+                  <Link to="/about" className="nav-link p-4 text-white">
                     Biz Kimiz
                   </Link>
-                  <Link to="#link" className="nav-link p-4 text-white">
+                  <Link to="/login" className="nav-link p-4 text-white">
                     Neler Sunuyoruz?
                   </Link>
-                  <Link to="#home" className="nav-link p-4 text-white">
+                  <Link to="/catalog" className="nav-link p-4 text-white">
                     Katalog
                   </Link>
-                  <Link to="#link" className="nav-link p-4 text-white">
+                  <Link to="/codecademy" className="nav-link p-4 text-white">
                     Codecademy
                   </Link>
-                  <Link to="#home" className="nav-link p-4 text-white">
+                  <Link to="/tobetoThis" className="nav-link p-4 text-white">
                     Tobeto'da Bu Ay
+                  </Link>
+
+                  <Link to="/platform" className="nav-link p-4 text-white">
+                    tobeto
                   </Link>
                 </Nav>
               </Navbar.Collapse>
