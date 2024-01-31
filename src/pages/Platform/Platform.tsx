@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./Platform.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faChevronRight,faCalendar} from "@fortawesome/free-solid-svg-icons";
-import { faClock } from "@fortawesome/free-regular-svg-icons";
-import { Link } from "react-router-dom";
 import { Welcome } from "../../components/Platform/Welcome";
 import { ApplicationTab } from "../../components/Platform/ApplicationTab";
 import { EducationTab } from "../../components/Platform/EducationTab";

@@ -33,12 +33,7 @@ function MyAnnouncement() {
 /*------ */
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [dropdownOpenOption, setDropdownOpenOption] = useState(false);
-  const [dropdownOpenInstitution, setDropdownOpenInstitution] = useState(false);
-
   const handleSearch = (event:any) => {
-    // Burada arama işlevselliğinizi tetikleyebilirsiniz.
-    // Örneğin, API çağrısı yapabilir veya başka bir state'i güncelleyebilirsiniz.
     console.log(searchTerm);
   };
 
@@ -64,7 +59,6 @@ function MyAnnouncement() {
 
   const [showAnnouncements, setShowAnnouncements] = useState(true);
 
-  // Butona tıkladığında görünürlüğü değiştirecek fonksiyon
   const toggleAnnouncements = () => {
     setShowAnnouncements((prevState) => !prevState);
   };
