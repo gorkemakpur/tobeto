@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ShowMore } from "./ShowMore";
 
 type Props = {};
 
@@ -83,19 +84,7 @@ export const EducationTab = (props: Props) => {
           </Row>
         </Col>
       </Row>
-      <Row className="all-edu-btn  ">
-        <div className="p-row-container">
-          <a href="/egitimlerim" className="link-full-row">
-            <button className="load-more-btn">
-              <FontAwesomeIcon
-                icon={faChevronRight}
-                className="p-button-icon"
-              />
-              <span>Daha Fazla Göster</span>
-            </button>
-          </a>
-        </div>
-      </Row>
+      <ShowMore/>
     </>
   );
 };

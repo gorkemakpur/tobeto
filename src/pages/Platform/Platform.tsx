@@ -8,6 +8,7 @@ import { AnnouncementTab } from "../../components/Platform/AnnouncementTab";
 import { SurveyTab } from "../../components/Platform/SurveyTab";
 import Exam from "../../components/Platform/Exam";
 import BottomThreeComponent from "../../components/Platform/BottomThreeComponent";
+import { ShowMore } from "../../components/Platform/ShowMore";
 
 export default function Platform() {
   const [activeTab, setActiveTab] = useState("basvurularim");
@@ -102,6 +103,7 @@ export default function Platform() {
                     )}
                   </div>
                 </div>
+                
               </Row>
             </Col>
           </div>
