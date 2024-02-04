@@ -21,6 +21,7 @@ class AnnouncementService extends BaseService<
 		super();
 		this.apiUrl = BASE_API_URL + "Announcements";
 	}
+	
 }
 var announcementService = new AnnouncementService();
 export default announcementService;

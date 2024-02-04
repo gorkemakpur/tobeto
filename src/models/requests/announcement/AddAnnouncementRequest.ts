@@ -3,4 +3,3 @@ export interface AddAnnouncementRequest {
 	announcementName: string;
 	description: string;
 }
-
