@@ -3,3 +3,4 @@ export interface updateAsyncCourseResponse {
     categoryId: string;
     name: string;
 }
+

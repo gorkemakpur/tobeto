@@ -6,3 +6,4 @@ export interface updateAsyncCourseDepartmentResponse {
     startedDate: string;
     endedDate: string;
 }
+

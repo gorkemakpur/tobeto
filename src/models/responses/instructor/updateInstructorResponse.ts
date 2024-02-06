@@ -9,3 +9,4 @@ export interface updateInstructorResponse {
     phoneNumber: string;
     about: string;
 }
+
