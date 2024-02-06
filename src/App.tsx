@@ -17,75 +17,84 @@ import MyAnnouncement from "./pages/MyAnnouncement/MyAnnouncement";
 
 function App() {
   return (
-<>
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navi />
+              <Announcement />
 
-    <Routes>
-        <Route path="/" element={
-        <>
-        <Navi />
-        <Announcement />
-        
-        <AnnouncementTypeList />
-        <Footer/>
-        </>} 
+              <AnnouncementTypeList />
+              <Footer />
+            </>
+          }
         />
 
-        <Route path="/platform" element={
-          <>
-          <Navi />
-        <Platform />
-        <Footer/>
-        </>
-        } 
+        <Route
+          path="/platform"
+          element={
+            <>
+              <Navi />
+              <Platform />
+              <Footer />
+            </>
+          }
         />
 
-
-        <Route path="/login" element={
-          <>
-        <LoginNavi/>
-        <Login />
-        <LoginFooter/>
-        </>
-        } 
+        <Route
+          path="/login"
+          element={
+            <>
+              <LoginNavi />
+              <Login />
+              <LoginFooter />
+            </>
+          }
         />
 
-        <Route path="/about" element={
-          <>
-        <LoginNavi/>
-        <About />
-        <LoginFooter/>
-        </>
-        } 
+        <Route
+          path="/about"
+          element={
+            <>
+              <LoginNavi />
+              <About />
+              <LoginFooter />
+            </>
+          }
         />
 
-        <Route path="/catalog" element={
-          <>
-        <LoginNavi/>
-        <Catalog />
-        <LoginFooter/>
-        </>
-        } 
+        <Route
+          path="/catalog"
+          element={
+            <>
+              <LoginNavi />
+              <Catalog />
+              <LoginFooter />
+            </>
+          }
         />
 
-<Route path="/activity" element={
-          <>
-        <Activity />
-        </>
-        } 
+        <Route
+          path="/activity"
+          element={
+            <>
+              <Activity />
+            </>
+          }
         />
- <Route
-        path="/my-announcement"
-        element={
-          <>
-          <Navi />
-            <MyAnnouncement />
-          </>
-        }
-      />
-
-
+        <Route
+          path="/my-announcement"
+          element={
+            <>
+              <Navi />
+              <MyAnnouncement />
+            </>
+          }
+        />
       </Routes>
-      </>
+    </>
   );
 }
 
