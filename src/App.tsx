@@ -14,23 +14,25 @@ import React from "react";
 import AnnouncementTypeList from "./pages/HomePage/AnnouncementTypeList";
 import Announcement from "./pages/HomePage/AnnouncementTest";
 import MyAnnouncement from "./pages/MyAnnouncement/MyAnnouncement";
+import MyCourse from "./pages/MyCourses/MyCourse";
+import AsyncCourseTest from "./pages/HomePage/AsyncCourseTest";
 
 function App() {
   return (
     <>
+    {/*Test */}
       <Routes>
         <Route
           path="/"
           element={
             <>
               <Navi />
-              <Announcement />
-
-              <AnnouncementTypeList />
+              <AsyncCourseTest/>
               <Footer />
             </>
           }
         />
+{/*--Test--*/}
 
         <Route
           path="/platform"
@@ -90,6 +92,15 @@ function App() {
             <>
               <Navi />
               <MyAnnouncement />
+            </>
+          }
+        />
+                <Route
+          path="/my-course"
+          element={
+            <>
+              <Navi />
+              <MyCourse />
             </>
           }
         />

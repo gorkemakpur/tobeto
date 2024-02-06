@@ -1,5 +1,5 @@
 export interface AsyncCourse {
-  id: string;
+  id:string;
   categoryId: string;
   name: string;
 }
