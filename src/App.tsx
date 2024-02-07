@@ -121,7 +121,7 @@ function App() {
           }
         />
                 <Route
-          path="/my-course"
+          path="/egitimlerim"
           element={
             <>
               <Navi />
