@@ -17,7 +17,7 @@ export default function SiteFooter() {
           </Col>
           <Col md={6}>
             <div className="text-center">
-              <Button className="btn btn-sm btn-light">Bize Ulaşın</Button>
+              <Link to={"/connection"}><Button className="btn btn-sm btn-light">Bize Ulaşın</Button></Link>
             </div>
           </Col>
         </Row>

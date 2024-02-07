@@ -25,7 +25,7 @@ export default function Login() {
     };
 
     dispatch(loginUser(userCredentials) as any).then((result:any) => {
-      if (result.payload) {
+      if (result.type==="user/loginUser/fullfilled") {
         setEmail("");
         setPassword("");
         navigate("/");

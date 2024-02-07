@@ -11,11 +11,14 @@ import LoginFooter from "./components/Login/LoginFooter/LoginFooter";
 import About from "./pages/About/About";
 import Activity from "./pages/Activity/Activity";
 import React from "react";
-import AnnouncementTypeList from "./pages/HomePage/AnnouncementTypeList";
-import Announcement from "./pages/HomePage/AnnouncementTest";
 import MyAnnouncement from "./pages/MyAnnouncement/MyAnnouncement";
 import MyCourse from "./pages/MyCourses/MyCourse";
-import AsyncCourseTest from "./pages/HomePage/AsyncCourseTest";
+import Register from "./pages/Register/Register";
+import Connection from "./pages/Connection/Connection";
+import CalendarComponent from "./pages/HomePage/CalendarTest";
+import Date from "./pages/Date/Date";
+
+
 
 function App() {
   return (
@@ -27,7 +30,7 @@ function App() {
           element={
             <>
               <Navi />
-              <AsyncCourseTest/>
+              <Date/>
               <Footer />
             </>
           }
@@ -51,6 +54,28 @@ function App() {
             <>
               <LoginNavi />
               <Login />
+              <LoginFooter />
+            </>
+          }
+        />
+
+<Route
+          path="/register"
+          element={
+            <>
+              <LoginNavi />
+              <Register />
+              <LoginFooter />
+            </>
+          }
+        />
+
+<Route
+          path="/connection"
+          element={
+            <>
+              <LoginNavi />
+              <Connection />
               <LoginFooter />
             </>
           }
