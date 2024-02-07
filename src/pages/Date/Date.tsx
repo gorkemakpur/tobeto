@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import moment from "moment";
 import axios from "axios";
-import { Container, Modal } from "react-bootstrap";
+import { Container, Modal, Button } from "react-bootstrap";
 import "./Date.css";
 
 const EventSummary: React.FC<{ event: { title: string; start: string } }> = ({ event }) => {
@@ -16,32 +16,24 @@ const EventSummary: React.FC<{ event: { title: string; start: string } }> = ({ e
   );
 };
 
-const EventList: React.FC<{ events: { title: string; start: string }[] }> = ({ events }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  const showMore = () => {
-    setExpanded(!expanded);
-  };
-
-  const eventItems = expanded ? events.map((event, index) => (
-    <li key={index}>
-      <EventSummary event={event} />
-    </li>
-  )) : events.slice(0, 3).map((event, index) => (
-    <li key={index}>
-      <EventSummary event={event} />
-    </li>
-  ));
+const EventList: React.FC<{ events: { title: string; start: string }[]; showButton?: boolean }> = ({ events, showButton = true }) => {
+  if (events.length === 0) {
+    return null; // Do not render anything if events array is empty
+  }
 
   return (
     <div>
       <ul>
-        {eventItems}
+        {events.map((event, index) => (
+          <li key={index}>
+            <EventSummary event={event} />
+          </li>
+        ))}
       </ul>
-      {events.length > 3 && (
-        <button className="btn btn-primary" onClick={showMore}>
-          {expanded ? "Show Less" : "Show More"}
-        </button>
+      {showButton && events.length > 3 && (
+        <Button className="btn btn-primary">
+          Show More
+        </Button>
       )}
     </div>
   );
@@ -49,20 +41,14 @@ const EventList: React.FC<{ events: { title: string; start: string }[] }> = ({ e
 
 const Date: React.FC = () => {
   const [events, setEvents] = useState<{ title: string; start: string }[]>([]);
-  const [selectedDateEvents, setSelectedDateEvents] = useState<
-    { title: string; start: string }[]
-  >([]);
+  const [selectedDateEvents, setSelectedDateEvents] = useState<{ title: string; start: string }[]>([]);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://localhost:44340/api/AsyncCourses/GetList"
-        );
-        const data: {
-          items: { name: string; createdDate: string }[];
-        } = response.data;
+        const response = await axios.get("https://localhost:44340/api/AsyncCourses/GetList");
+        const data: { items: { name: string; createdDate: string }[] } = response.data;
 
         const formattedEvents = data.items.map((event) => ({
           title: event.name,
@@ -78,9 +64,7 @@ const Date: React.FC = () => {
   }, []);
 
   const handleShowMore = (date: string) => {
-    const selectedEvents = events.filter(
-      (event) => moment(event.start).format("YYYY-MM-DD") === date
-    );
+    const selectedEvents = events.filter((event) => moment(event.start).format("YYYY-MM-DD") === date);
     setSelectedDateEvents(selectedEvents);
     setShowModal(true);
   };
@@ -88,9 +72,7 @@ const Date: React.FC = () => {
   return (
     <Container>
       <div className="calendar-container">
-        <div className="calendar-header">
-          Takvim
-        </div>
+        <div className="calendar-header">Takvim</div>
         <div className="calendar-content">
           <Calendar
             plugins={[dayGridPlugin, timeGridPlugin]}
@@ -102,40 +84,41 @@ const Date: React.FC = () => {
             }}
             events={events}
             dayHeaderFormat={{
-              weekday: 'long',
-              month: 'numeric',
-              day: 'numeric',
-              year: 'numeric'
+              weekday: "long",
+              month: "numeric",
+              day: "numeric",
+              year: "numeric",
             }}
             dayHeaderContent={(args) => {
-              const dayEvents = events.filter(
-                (event) => moment(event.start).format("YYYY-MM-DD") === moment(args.date).format("YYYY-MM-DD")
-                );
-      
-                return (
-                  <div>
-                    <span className="custom-day-header">{moment(args.date).format("dddd")}</span>
-                    <EventList events={dayEvents} />
-                  </div>
-                );
-              }}
-            />
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
-              <Modal.Header closeButton>
-                <Modal.Title>Selected Date Events</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                {selectedDateEvents.length > 0 && (
-                  <>
-                    <h4>{moment(selectedDateEvents[0].start).format("DD MMMM YYYY")}</h4>
-                    <ul>{selectedDateEvents.map((event, index) => (<li key={index}>{event.title}</li>))}</ul>
-                  </>
-                )}
-              </Modal.Body>
-            </Modal>
-          </div>
+              return (
+                <div>
+                  <span className="custom-day-header">{moment(args.date).format("dddd")}</span>
+                </div>
+              );
+            }}
+            eventContent={(arg) => (
+              <div>
+                <b>{arg.timeText}</b>
+                <i>{arg.event.title}</i>
+              </div>
+            )}
+          />
+          <Modal show={showModal} onHide={() => setShowModal(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>Selected Date Events</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {selectedDateEvents.length > 0 && (
+                <>
+                  <h4>{moment(selectedDateEvents[0].start).format("DD MMMM YYYY")}</h4>
+                  <ul>{selectedDateEvents.map((event, index) => (<li key={index}>{event.title}</li>))}</ul>
+                </>
+              )}
+            </Modal.Body>
+          </Modal>
         </div>
-      </Container>
+      </div>
+    </Container>
   );
 };
 
