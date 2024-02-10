@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons"; // tıklanmamış için
 import { faBookmark as fasBookmark } from "@fortawesome/free-solid-svg-icons"; // tıklanmış için
@@ -17,14 +17,39 @@ import {
 import "./Activity.css";
 import Accordion from "./ListAccordion/ListAccordion";
 import OffCanvas from "./OffCanvas/OffCanvas";
-import { Row, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import { VideoDetails } from "../../components/Activity/VideoDetails";
 
 export default function Activity() {
   const [liked, setLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [progress, setProgress] = useState(0);
   const [activeTab, setActiveTab] = useState("icerik");
+
+  const { fetchData, setFetchData }: any = useState("");
+  let { courseID } = useParams();
+  console.log(courseID);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Apı request to fetch related content
+        const response = await axios.get(
+          `https://localhost:44340/api/AsyncCourseContents/GetByAsyncCourseId?id=f539c27e-a7a2-4c62-7526-08dc27f49c0a`
+        );
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        return null;
+      }
+    };
+    fetchData().then((data) => {
+      // Log the fetched data
+      console.log(data);
+    });
+  }, [courseID]);
 
   // Like butonunun toggle fonksiyonu
   const toggleLike = () => {
@@ -36,7 +61,7 @@ export default function Activity() {
     setIsBookmarked(!isBookmarked);
   };
 
-  const handleTabClick = (tab:any) => {
+  const handleTabClick = (tab: any) => {
     setActiveTab(tab);
   };
   // İlerleme çubuğunun simülasyonu için useEffect hook'u
@@ -62,12 +87,12 @@ export default function Activity() {
 
   return (
     <div className="content-activity">
-      {/*bu alan başlığı için ya cookie kullanılacak yada başka bi apiden istek alınacak*/}
       <div className="row header-row ">
         <div className="col-md-1 col-sm-0 ">
           <img
             src="https://lms.tobeto.com/tobeto/eep/common_show_picture_cached.aspx?pQS=eaAjNZ0uaOFNO7nf8wuXoA%3d%3d"
-            className="edu-img" alt=""
+            className="edu-img"
+            alt=""
           ></img>
         </div>
         <div className="col-lg-11 col-md-10 col-sm-9 col-12 ">
@@ -75,7 +100,8 @@ export default function Activity() {
             <div className="row">
               <div className="col-sm-12 col-xs-12 col-md-8 edu-title ">
                 <div className="edu-title-row">
-                  .NET & React Fullstack | Öğrenme Yolculuğu
+                  .NET & React Fullstack | Öğrenme Yolculuğu <br></br>
+                  id
                   {/*<span className="tag-blue">GELİŞİM YOLCULUĞU</span>*/}
                 </div>
               </div>
@@ -159,60 +185,30 @@ export default function Activity() {
                 <div>
                   <div className="icerik-detail">
                     <Row className="justify-content-end flex-row-reverse">
-                      
-                      {/*Sağ alan */}
-                      <Col className="custom-right">
-                        <div className="video-area-cont">
-                          <Row className="video-area">
-                            <div className="video-container">
-                              <iframe
-                                src="https://www.youtube.com/embed/Hgqqoycoh9c"
-                                title="YouTube video player"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                              ></iframe>
-                            </div>
-                          </Row>
-                          <Row>
-                            
-                            <Col>
-                              <Row className="video-name">
-                                ASPNET Core ve ASPNET Tarihçesi
-                              </Row>
-                              <Row className="video-time-detail">
-                                <Col>Video - 4 dk</Col>
-                                <Col>100 puan</Col>
-                                <Col className="ok-icon">
-                                  <FontAwesomeIcon icon={faThumbsUp} />
-                                  &nbsp;Tebrikler,&nbsp;&nbsp;&nbsp;tamamladın!
-                                </Col>
-                              </Row>
-                            </Col>
 
-                            <Col className="video-detail-btn">
-                              <OffCanvas
-                                /*className={
-                                  isOffCanvasOpen ? "offcanvas-open" : ""
-                                }
-                                showButton={showButton}
-                                setShowButton={setShowButton}*/
-                              />
-                            </Col>
-                          </Row>
-                        </div>
-                      </Col>
-                      {/*Sağ alan bitiş */}
-                      {/*Sol alan */}
-                      <Col className="custom-left mt-4">
+
+
+                      <VideoDetails /> 
+                      {/* Buraya aşağıda listeleyeceğimiz kurslardan hangisine tıklarsak onun id sini göndereceğiz 
+                          VideoDetails içinde o id yi yakalayıp getbyid olan apiye istek atacağız
+                          gelen verideki bilgileri o kısıma yazdıracağız
+                      */}
+                      <Col className="custom-left">
                         <div className="scrollable-div">
-                            <div className="accordion-subtitle">
-                              ASPNET Core ve ASPNET Tarihçesi
-                              <p className="subtitle-detail">Video - 4 dk</p>
-                            </div>
+                          <Accordion title="ASPNET Core MVC Basic">
+                            {/*bu kısım için normalde ek tablo açılması lazım ilerde bakacağız */}
+                            <Link to={"#"}>
+                              <div className="accordion-subtitle">
+                                name
+                                <p className="subtitle-detail">
+                                  title
+                                </p>{" "}
+                                {/*bu kısımda title alanını kullanmıyoruz şimdilik süreyi orada tutalım  */}
+                              </div>
+                            </Link>
+                          </Accordion>
                         </div>
                       </Col>
-
-                      {/*Sol alan bitiş */}
                     </Row>
                   </div>
                 </div>
