@@ -17,7 +17,8 @@ import {
 import "./Activity.css";
 import Accordion from "./ListAccordion/ListAccordion";
 import OffCanvas from "./OffCanvas/OffCanvas";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Activity() {
   const [liked, setLiked] = useState(false);
@@ -61,6 +62,7 @@ export default function Activity() {
 
   return (
     <div className="content-activity">
+      {/*bu alan başlığı için ya cookie kullanılacak yada başka bi apiden istek alınacak*/}
       <div className="row header-row ">
         <div className="col-md-1 col-sm-0 ">
           <img
@@ -157,6 +159,8 @@ export default function Activity() {
                 <div>
                   <div className="icerik-detail">
                     <Row className="justify-content-end flex-row-reverse">
+                      
+                      {/*Sağ alan */}
                       <Col className="custom-right">
                         <div className="video-area-cont">
                           <Row className="video-area">
@@ -164,27 +168,27 @@ export default function Activity() {
                               <iframe
                                 src="https://www.youtube.com/embed/Hgqqoycoh9c"
                                 title="YouTube video player"
-                                frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                               ></iframe>
                             </div>
                           </Row>
                           <Row>
+                            
                             <Col>
                               <Row className="video-name">
                                 ASPNET Core ve ASPNET Tarihçesi
                               </Row>
                               <Row className="video-time-detail">
-                                <Col> Video - 4 dk</Col>
+                                <Col>Video - 4 dk</Col>
                                 <Col>100 puan</Col>
                                 <Col className="ok-icon">
-                                  {" "}
                                   <FontAwesomeIcon icon={faThumbsUp} />
                                   &nbsp;Tebrikler,&nbsp;&nbsp;&nbsp;tamamladın!
                                 </Col>
                               </Row>
                             </Col>
+
                             <Col className="video-detail-btn">
                               <OffCanvas
                                 /*className={
@@ -197,69 +201,18 @@ export default function Activity() {
                           </Row>
                         </div>
                       </Col>
-                      <Col className="custom-left">
+                      {/*Sağ alan bitiş */}
+                      {/*Sol alan */}
+                      <Col className="custom-left mt-4">
                         <div className="scrollable-div">
-                          <Accordion title="ASPNET Core MVC Basic">
                             <div className="accordion-subtitle">
                               ASPNET Core ve ASPNET Tarihçesi
+                              <p className="subtitle-detail">Video - 4 dk</p>
                             </div>
-                            <p className="subtitle-detail">Video - 4 dk</p>
-                            <div className="accordion-subtitle">
-                              React2 Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi2...</p>
-                          </Accordion>
-                          <Accordion title="ReactJS Basic">
-                            <div className="accordion-subtitle">
-                              React Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi...</p>
-                            <div className="accordion-subtitle">
-                              React2 Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi2...</p>
-
-                            {/* Diğer alt başlıklar */}
-                          </Accordion>
-                          {/* Diğer ana başlıklar */}
-                          <Accordion title="ReactJS Basic">
-                            <div className="accordion-subtitle">
-                              React Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi...</p>
-                            <div className="accordion-subtitle">
-                              React2 Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi2...</p>
-
-                            {/* Diğer alt başlıklar */}
-                          </Accordion>
-                          <Accordion title="ReactJS Basic">
-                            <div className="accordion-subtitle">
-                              React Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi...</p>
-                            <div className="accordion-subtitle">
-                              React2 Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi2...</p>
-
-                            {/* Diğer alt başlıklar */}
-                          </Accordion>
-                          <Accordion title="ReactJS Basic">
-                            <div className="accordion-subtitle">
-                              React Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi...</p>
-                            <div className="accordion-subtitle">
-                              React2 Nedir?
-                            </div>
-                            <p className="subtitle-detail">Detay bilgisi2...</p>
-
-                            {/* Diğer alt başlıklar */}
-                          </Accordion>
                         </div>
                       </Col>
+
+                      {/*Sol alan bitiş */}
                     </Row>
                   </div>
                 </div>
