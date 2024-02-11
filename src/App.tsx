@@ -115,7 +115,7 @@ function App() {
         />
 
         <Route
-          path="/activity"
+          path="/activity/:courseID"
           element={
             <>
               <Activity />

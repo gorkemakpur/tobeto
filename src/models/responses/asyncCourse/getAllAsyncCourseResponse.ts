@@ -2,7 +2,7 @@ export interface AsyncCourse {
   id:string;
   categoryId: string;
   name: string;
-  createdDate:string;
+  createdDate:Date;
 }
 
 export interface getAllAsyncCourseResponse {

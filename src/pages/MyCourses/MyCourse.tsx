@@ -144,7 +144,8 @@ function MyCourse() {
                             <div className="edu-card-body">
                               <h5 className="edu-card-title">{course.name}</h5>
                               <p className="edu-card-date">
-                                {course.createdDate}
+                              {new Date(course.createdDate).toLocaleDateString('tr-TR')} - 
+                              {new Date(course.createdDate).toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
                               </p>
                               <button className="edu-card-button">
                                 Eğitime Git

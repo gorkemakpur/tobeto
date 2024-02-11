@@ -37,7 +37,7 @@ export default function Activity() {
       try {
         // Apı request to fetch related content
         const response = await axios.get(
-          `https://localhost:44340/api/AsyncCourseContents/GetByAsyncCourseId?id=f539c27e-a7a2-4c62-7526-08dc27f49c0a`
+          `https://localhost:44340/api/AsyncCourseContents/GetByAsyncCourseId?id=${courseID}`
         );
         return response.data;
       } catch (error) {
