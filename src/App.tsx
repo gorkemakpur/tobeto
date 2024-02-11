@@ -36,6 +36,17 @@ function App() {
           }
         />
 {/*--Test--*/}
+<Route
+          path="/dates"
+          element={
+            <>
+              <Navi />
+              <Date/>
+              <Footer />
+            </>
+          }
+        />
+
 
         <Route
           path="/platform"
@@ -129,6 +140,7 @@ function App() {
             </>
           }
         />
+
       </Routes>
     </>
   );

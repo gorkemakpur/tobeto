@@ -127,12 +127,11 @@ function MyCourse() {
               <div className="tab-my-all-courses">
                 <div className="edu-area">
                   <Row key="id">
-                    {asyncCourses.map((course,index) => (
+                    {asyncCourses.map((course, index) => (
                       <Col key={index} lg={3} md={6} xs={12}>
-                        {course.id}
                         <Link
-                        //bu yönlendirmeye bakılacak
-                          to={`/activity/${course.id}`}
+                          //bu yönlendirmeye bakılacak
+                          to={`/activity/${course.id}`} //kurs id gönderilecek id'ye göre
                           className="edu-card-link "
                         >
                           <div className="edu-card ">
@@ -144,7 +143,9 @@ function MyCourse() {
                             </div>
                             <div className="edu-card-body">
                               <h5 className="edu-card-title">{course.name}</h5>
-                              <p className="edu-card-date">{course.id}</p>
+                              <p className="edu-card-date">
+                                {course.createdDate}
+                              </p>
                               <button className="edu-card-button">
                                 Eğitime Git
                               </button>
@@ -159,13 +160,13 @@ function MyCourse() {
             )}
             {activeTab === "cont-courses" && (
               <div className="tab-cont-courses">
-                  <div className="edu-area">
+                <div className="edu-area">
                   <Row key="id">
                     {asyncCourses.map((course) => (
                       <Col lg={3} md={6} xs={12}>
                         <Link
                           to={`/activity/${course.id}`}
-                          className="edu-card-link "
+                          className="edu-card-link"
                         >
                           <div className="edu-card ">
                             <div className="edu-card-image">
@@ -176,7 +177,7 @@ function MyCourse() {
                             </div>
                             <div className="edu-card-body">
                               <h5 className="edu-card-title">{course.name}</h5>
-                              <p className="edu-card-date">{course.id}</p>
+                              <p className="edu-card-date"></p>
                               <button className="edu-card-button">
                                 Eğitime Git
                               </button>
@@ -191,7 +192,7 @@ function MyCourse() {
             )}
             {activeTab === "completed-edu" && (
               <div className="tab-completed-edu">
-                  <div className="edu-area">
+                <div className="edu-area">
                   <Row key="id">
                     {asyncCourses.map((course) => (
                       <Col lg={3} md={6} xs={12}>
@@ -208,7 +209,7 @@ function MyCourse() {
                             </div>
                             <div className="edu-card-body">
                               <h5 className="edu-card-title">{course.name}</h5>
-                              <p className="edu-card-date">{course.id}</p>
+                              <p className="edu-card-date"></p>
                               <button className="edu-card-button">
                                 Eğitime Git
                               </button>
