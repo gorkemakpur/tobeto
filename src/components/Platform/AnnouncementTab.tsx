@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { ShowMore } from './ShowMore'
 import { Announcement } from '../../models/responses/announcement/getAllAnnouncementResponse'
 import announcementService from '../../services/announcementService'
+import { ShowMoreAnc } from './ShowMoreAnc'
 
 type Props = {}
 
@@ -63,7 +63,7 @@ export const AnnouncementTab = (props: Props) => {
               </Row>
             </Col>
           ))}
-          <ShowMore/>
+          <ShowMoreAnc/>
         </Row>
       </Col>
     </Row>
