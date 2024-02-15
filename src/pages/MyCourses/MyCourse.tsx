@@ -25,7 +25,6 @@ function MyCourse() {
       setLoading(false);
     }
   };
-
   const handleSearch = () => {
     // Arama işlemini burada gerçekleştirin
     console.log(searchTerm);

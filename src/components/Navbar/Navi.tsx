@@ -4,12 +4,13 @@ import React from "react";
 import { Col, Container, Image, Nav, NavDropdown, Navbar, Row } from "react-bootstrap";
 import { NavLink } from "react-router-dom"; // Import NavLink from react-router-dom
 import '../Navbar/Navi.css';
+import Platform from "../../pages/Platform/Platform";
 
 export default function Navi() {
   return (
     <Navbar expand="sm" className="bg-body-tertiary">
       
-        <Image src="https://tobeto.com/_next/static/media/tobeto-logo.29b55e1c.svg" className="mx-5" width={"179px"} />
+        <NavLink to={"/platform"}><Image src="https://tobeto.com/_next/static/media/tobeto-logo.29b55e1c.svg" className="mx-5" width={"179px"}/></NavLink>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         
@@ -18,7 +19,7 @@ export default function Navi() {
             <NavLink to="/platform" className="nav-link p-4">
               Anasayfa
             </NavLink>
-            <NavLink to="/profile" className="nav-link p-4">
+            <NavLink to="/my-profile" className="nav-link p-4">
               Profilim
             </NavLink>
             <NavLink to="/" className="nav-link p-4">
@@ -34,13 +35,13 @@ export default function Navi() {
               İstanbul Kodluyor
             </NavLink>
           </Nav>
-  
+          
           <Nav className="d-flex align-items-center me-5">
             <Nav.Link className="text-dark ">
               <FontAwesomeIcon icon={faSave} style={{ color: 'purple' }} />
             </Nav.Link>
             <NavDropdown title="İsim Soyisim" id="profile-dropdown">
-              <NavDropdown.Item>Profil Bilgileri</NavDropdown.Item>
+              <NavDropdown.Item><NavLink className={"text-dark"} to={"/my-profile"}>Profil Bilgileri</NavLink></NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item>Oturumu Kapat</NavDropdown.Item>
             </NavDropdown>
