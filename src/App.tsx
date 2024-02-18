@@ -26,36 +26,34 @@ import Education from "./pages/MyProfile/Education/Education";
 import Experience from "./pages/MyProfile/Experience/Experience";
 import Language from "./pages/MyProfile/Language/Language";
 import SocialMedia from "./pages/MyProfile/SocialMedia/SocialMedia";
-
-
+import { VideoDetails } from "./components/Activity/VideoDetails";
 
 function App() {
   return (
     <>
-    {/*Test */}
+      {/*Test */}
       <Routes>
         <Route
           path="/"
           element={
             <>
               <Navi />
-              <Date/>
+              <Date />
               <Footer />
             </>
           }
         />
-{/*--Test--*/}
-<Route
+        {/*--Test--*/}
+        <Route
           path="/dates"
           element={
             <>
               <Navi />
-              <Date/>
+              <Date />
               <Footer />
             </>
           }
         />
-
 
         <Route
           path="/platform"
@@ -79,7 +77,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/register"
           element={
             <>
@@ -90,7 +88,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/connection"
           element={
             <>
@@ -122,6 +120,16 @@ function App() {
             </>
           }
         />
+        
+{/*url değişebilir sorun değil */}
+        <Route
+          path="/videoDetails/:courseContentId"
+          element={
+            <>
+              <VideoDetails />
+            </>
+          }
+        />
 
         <Route
           path="/activity/:courseID"
@@ -140,7 +148,7 @@ function App() {
             </>
           }
         />
-                <Route
+        <Route
           path="/egitimlerim"
           element={
             <>
@@ -150,7 +158,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/my-profile"
           element={
             <>
@@ -248,7 +256,6 @@ function App() {
             </>
           }
         />
-
       </Routes>
     </>
   );

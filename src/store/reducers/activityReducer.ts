@@ -1,27 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-export interface ActivityState {
-  liked: boolean;
-  isBookmarked: boolean;
-  progress: number;
-  activeTab: string;
-  accordionData: any[];
-  subTypes: any[];
-  names: string[];
-  videos: any[];
-  selectedVideo: any;
-}
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   liked: false,
-  isBookmarked: false,
+  isBookmarked: false,  
   progress: 0,
   activeTab: "icerik",
   accordionData: [],
   subtypes: [],
   names: [],
   videos: [],
-  selectedVideos: [],
+  selectedVideos: null,
 };
 
 const activitySlice = createSlice({
